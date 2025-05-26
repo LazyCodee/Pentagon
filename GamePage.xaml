@@ -1,0 +1,70 @@
+﻿<Page x:Class="Pentagon.GamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pentagon"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="600"
+      Title="Page1">
+    <Grid>
+        <!-- Розбивка на 3 рядки і 2 колонки -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <!-- Верхній рядок з кнопками -->
+            <RowDefinition Height="*"/>
+            <!-- Основна зона з полем і фігурами -->
+            <RowDefinition Height="30"/>
+            <!-- Нижній рядок з текстом -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Верхній рядок: кнопки -->
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,10">
+            <Button Name="BackToMenuBtn" Content="← Menu" Width="70" Margin="10,0,0,0" Click="BackToMenuBtn_Click"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">               
+                <Button x:Name="UndoButton" Content="Undo" Width="60" Margin="2" IsEnabled="False" Click="UndoButton_Click"/>
+                <Button x:Name="PlaceButton" Content="Place" Width="60" Margin="2" IsEnabled="False" Click="PlaceButton_Click"/>
+                <Button x:Name="SolveButton" Content="Solve" Width="60" Margin="2" IsEnabled="False" Click="SolveButton_Click"/>
+                <Button x:Name="RestartButton" Content="Restart" Width="60" Margin="2" Click="RestartButton_Click"/>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Центральна частина: ігрове поле -->
+        <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Width="390" Height="390" Background="LightGray" Margin="0,0,80,0">
+            <Grid x:Name="GameFieldGrid"/>
+        </Border>
+
+        <!-- Центральна частина: фігури -->
+        <Border x:Name="FigurePanelBorder" Grid.Row="1"
+                      Grid.Column="1" 
+                      Margin="20, 0, 50, 0" Height="480" Width="650">
+            <Grid Name="FigureGrid" Background="Cornsilk">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Border>
+
+        <!-- Нижній рядок: текст -->
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2"
+                   Text="Hint: right-click on the shape to rotate it 90º to the right. "
+                   Margin="0, 0, 0, 10" FontSize="14"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="#AC9898" FontStyle="Italic"/>
+    </Grid>
+</Page>

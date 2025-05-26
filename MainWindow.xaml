@@ -1,0 +1,21 @@
+﻿<Window x:Class="Pentagon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pentagon"
+        mc:Ignorable="d"
+        WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
+    <Grid Background="#E6DEDE">
+        <!-- Панель з назвою гри та кнопками-->
+        <DockPanel Background="#222" Height="30" VerticalAlignment="Top">
+            <TextBlock Text="Pentagon" Foreground="White" VerticalAlignment="Center" Margin="10,0,0,0" FontWeight="Bold" FontSize="14"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Width="30" Content="🗕" Click="Minimize_Click"/> <!-- Кнопка згортання вікна-->               
+                <Button Width="30" Content="▢" IsEnabled="False"/>       <!-- Кнопка мінімізації/максимізація вікна (завжди вимкнена)-->        
+                <Button Width="30" Content="✕" Click="Exit_Click"/>      <!-- Кнопка закриття програми-->
+            </StackPanel>
+        </DockPanel>       
+        <Frame Name="MainFrame" Background="Beige" NavigationUIVisibility="Hidden" Margin="0, 30, 0, 0"/>
+    </Grid>
+</Window>
